@@ -1,0 +1,12 @@
+[Unit]
+Description=Zookeper Service
+ 
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/itau/zookeeper/bin/zkServer.sh start
+ExecStop=/itau/zookeeper/bin/zkServer.sh stop
+ExecReload=/itau/zookeeper/bin/zkServer.sh restart
+ 
+[Install]
+WantedBy=multi-user.target

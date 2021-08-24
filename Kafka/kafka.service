@@ -1,0 +1,13 @@
+[Unit]
+Description=Kafka Service
+ 
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/itau/kafka/bin/kafka-server-start.sh /itau/kafka/config/server.properties
+ExecStop=/itau/kafka/bin/kafka-server-stop.sh
+Environment="KAFKA_OPTS=-javaagent:/opt/jmx_prometheus_javaagent.jar=7070:/opt/prom-jmx-config.yml"
+
+ 
+[Install]
+WantedBy=multi-user.target
